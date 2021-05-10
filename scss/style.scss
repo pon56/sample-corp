@@ -13,10 +13,11 @@ $breakpoints: (
 
 // 色
 $font-color: #3e3e3e;
-$yellow-button: #FFAA3B;
+$yellow-button: #ffaa3b;
+$box-shadow-color: #3e3e3e33;
 
 // フォント
-$Montserrat: 'Montserrat', sans-serif;
+$Montserrat: "Montserrat", sans-serif;
 
 // 全体に共通するスタイル
 @include mq(sm) {
@@ -31,12 +32,16 @@ $Montserrat: 'Montserrat', sans-serif;
     }
 }
 
-.main {
-    padding-top: 70px;
+main {
+    background: #f3f3f3;
 
     @include mq(sm) {
         padding-top: 60px;
     }
+}
+
+.section {
+    margin: 120px 40px;
 }
 
 // util
@@ -91,7 +96,6 @@ img {
 .inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px;
     box-sizing: content-box;
 
     @include mq(sm) {
@@ -110,8 +114,8 @@ img {
     right: 3px;
 }
 
-.header{
-    background: #FFFFFF1A;
+.header {
+    background: #ffffff1a;
     position: fixed;
     top: 0;
     left: 0;
@@ -120,33 +124,33 @@ img {
     height: 83px;
 }
 
-.header-inner{
+.header-inner {
     height: inherit;
     position: relative;
 }
 
-.header-nav{
+.header-nav {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.header-nav-list{
-    @include mq(md){
+.header-nav-list {
+    @include mq(md) {
         display: flex;
     }
 }
 
-.header-nav-item{
-    @include mq(md){
-        & + &{
+.header-nav-item {
+    @include mq(md) {
+        & + & {
             margin-left: 40px;
         }
     }
 }
 
-.header-nav-item-link{
+.header-nav-item-link {
     display: block;
     color: $font-color;
     font-family: $Montserrat;
@@ -155,14 +159,14 @@ img {
 // ヘッダー終わり
 
 // トップ始まり
-.top-img{
+.top-img {
     position: relative;
     width: 100%;
     padding-top: 50%;
     background: url("../img/mv.png") center center / cover no-repeat;
 }
 
-.top-message{
+.top-message {
     position: absolute;
     right: 40px;
     top: 38%;
@@ -170,27 +174,683 @@ img {
     width: 600px;
 }
 
-.top-title{
+.top-title {
     font-weight: bold;
     font-size: 32px;
 }
 
-.top-txt{
+.top-txt {
     margin-top: 40px;
     font-size: 18px;
     font-weight: bold;
 }
 
-.top-button{
+.top-button {
     margin-top: 40px;
 }
 
-.top-button-link{
+.top-button-link {
     font-weight: bold;
     font-size: 18px;
     background: $yellow-button;
-    color: #FFF;
+    color: #fff;
     padding: 16px 50px;
     border-radius: 10px;
-    box-shadow: #3E3E3E33 0 3px 5px;
+    box-shadow: $box-shadow-color 0 3px 5px;
 }
+// トップ終わり
+
+// ニュース始まり
+.news {
+    background: #fff;
+}
+
+.news-inner {
+    padding: 60px 60px 80px 60px;
+    box-shadow: $box-shadow-color 0 5px 12px;
+}
+
+.news-item {
+    padding: 32px 0;
+
+    &:first-child {
+        margin-top: 60px;
+        border-top: 1px solid #cecdcd;
+        border-bottom: 1px solid #cecdcd;
+    }
+
+    & + & {
+        border-bottom: 1px solid #cecdcd;
+    }
+}
+
+.news-item-link {
+    display: flex;
+    align-items: center;
+}
+
+.news-header {
+    display: flex;
+}
+
+.news-item-date {
+    font-size: 18px;
+    font-family: $Montserrat;
+    width: 98px;
+    margin-right: 40px;
+}
+
+.news-lavel {
+    display: inline-block;
+    width: 121px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 14px;
+    border: 2px solid #3b69ff;
+    margin-right: 40px;
+}
+
+.news-item-body {
+    width: calc(100% - 98px - 121px);
+    font-size: 18px;
+    margin-right: 40px;
+}
+
+.news-right {
+    margin: 0 auto;
+}
+
+.news-item-img {
+    width: 10.5px;
+    height: 21.5px;
+}
+
+.news-footer {
+    margin-top: 80px;
+    text-align: center;
+
+    .news-footer-link {
+        border: 1px solid $font-color;
+        padding: 20px 80px;
+    }
+}
+// ニュース終わり
+
+// サービス始まり
+.service {
+    margin: 120px 0 240px 0;
+}
+
+.service-bg {
+    background: #3e3e3e;
+    height: 400px;
+    position: relative;
+
+    .service-title {
+        color: #fff;
+        padding-top: 60px;
+    }
+}
+
+.service-container {
+    margin: 60px auto;
+    background: #fff;
+    width: 960px;
+    height: 331px;
+    box-shadow: $box-shadow-color 0 5px 12px;
+}
+
+.service-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.service-item {
+    margin: 0 45px;
+}
+
+.service-item-img {
+    margin: 60px auto 8px;
+    width: 64px;
+    height: 64px;
+}
+
+.service-item-title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.4;
+    font-family: $Montserrat;
+}
+
+.service-item-txt {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: 20px;
+    width: 230px;
+}
+
+// サービス終わり
+
+// リザルト始まり
+.swiper-container {
+    padding-bottom: 80px;
+}
+
+.swiper-pagination-bullet {
+    opacity: 1;
+    background: #fff;
+    height: 12px;
+    width: 12px;
+}
+
+.swiper-pagination-bullet-active {
+    position: relative;
+
+    &::after {
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        content: "";
+        border: solid 1px #fff;
+        top: -40%;
+        left: -40%;
+    }
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    padding-left: 5px;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+    margin-right: 20px;
+}
+
+.swiper-pagination {
+    text-align: left;
+}
+
+.result-inner {
+    background: #3e3e3e;
+    padding: 60px 0 80px 60px;
+    margin-left: 40px;
+}
+
+.results-title {
+    color: #fff;
+    font-size: 36px;
+    font-family: $Montserrat;
+    font-weight: 500;
+    margin-bottom: 60px;
+}
+
+.results-list {
+    display: flex;
+}
+
+.results-item {
+    width: 400px;
+    height: 366px;
+    margin-right: 40px;
+}
+
+.result-item-body {
+    background: #fff;
+    padding: 16px;
+}
+
+.results-item-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.results-footer {
+    margin-top: 40px;
+}
+
+.results-link {
+    border: #fff 1px solid;
+    color: #fff;
+    padding: 20px 80px;
+}
+
+// リザルト終わり
+
+// プライス始まり
+.price {
+    padding: 120px 0;
+}
+
+.price-table {
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+}
+
+.table {
+    width: inherit;
+    border-collapse: collapse;
+    border: solid 1px #707070;
+    font-size: 24px;
+    font-weight: 500;
+    table-layout: fixed;
+
+    th,
+    td {
+        border: solid 1px #707070;
+        padding: 16px;
+    }
+
+    th {
+        width: 262px;
+        background: #3e3e3e;
+        color: #fff;
+    }
+
+    td {
+        width: calc(100% - 262px);
+        background: #fff;
+    }
+}
+
+.price-table-txt {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+// プライス終わり
+
+// コメント始まり
+.comments {
+    margin-top: 140px;
+}
+
+.comments-bg {
+    position: relative;
+    background: linear-gradient(to right, #3e3e3e 0%, #3e3e3e 76%, #f3f3f3 76%, #f3f3f3 100%);
+    width: 100%;
+    height: 576px;
+}
+
+.comments-container {
+    width: 100%;
+    display: flex;
+}
+
+.comments-left {
+    position: absolute;
+    width: 52%;
+    background: #fff;
+    top: -150px;
+    height: 604px;
+}
+
+.comments-title {
+    font-size: 36px;
+    margin: 120px 60px 60px 60px;
+    font-weight: bold;
+}
+
+.comments-item {
+    display: flex;
+}
+
+.comments-item-img {
+    img {
+        width: 100px;
+        margin: 0 32px 60px 60px;
+    }
+}
+
+.comments-item-message {
+    width: 60%;
+}
+
+.comments-right {
+    position: absolute;
+    right: 40px;
+    top: -70px;
+}
+
+// コメント終わり
+
+// Q&A始まり
+.qa {
+    height: 952px;
+    background: url("../img/qa-bg.png") center center / cover;
+    padding: 60px 0 120px 0;
+}
+
+.qa-container {
+    margin-top: 60px;
+}
+
+.qa-item {
+    margin-right: 40px;
+    overflow: hidden;
+    margin-bottom: 32px;
+    margin-left: auto;
+    background: #fff;
+    width: 612px;
+    padding: 16px;
+    border-radius: 4px;
+}
+
+.qa-box-q {
+    position: relative;
+}
+
+.q-txt {
+    margin-left: 35px;
+
+    &::before {
+        font-family: $Montserrat;
+        position: absolute;
+        content: "Q";
+        background: #3b69ff;
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+        color: #fff;
+        font-weight: 700;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+    }
+}
+
+.qa-box-icon {
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &.is-open {
+        .qa-box-bar2 {
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.qa-box-bar1 {
+    width: 17px;
+    height: 3px;
+    border-radius: 20px;
+    background: #3b69ff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 14.5%;
+}
+
+.qa-box-bar2 {
+    width: 3px;
+    height: 17px;
+    background: #3b69ff;
+    position: absolute;
+    right: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    transition: all 0.3s ease 0s;
+}
+
+.qa-box-a {
+    display: none;
+}
+
+.qa-box-content {
+    margin-top: 18px;
+    background: #3b69ff33;
+    border-radius: 4px;
+    padding: 16px;
+}
+
+// Q%A終わり
+
+// アクセス始まり
+.access {
+    margin-bottom: 256px;
+}
+
+.access-left {
+    background: linear-gradient(to right, #3e3e3e 0%, #3e3e3e 76%, #f3f3f3 76%, #f3f3f3 100%);
+    padding: 120px 100px;
+    color: #fff;
+    position: relative;
+}
+
+.access-title {
+    font-family: $Montserrat;
+    font-weight: 700;
+    font-size: 36px;
+}
+
+.access-info {
+    margin-top: 60px;
+}
+
+.access-link {
+    margin-top: 52px;
+}
+
+.access-link-map {
+    border: 1px solid #fff;
+    padding: 20px 80px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.access-right {
+    position: absolute;
+    top: 120px;
+    right: 40px;
+    width: 60%;
+}
+
+.iframe-wrap {
+    iframe {
+        height: 520px;
+        width: 100%;
+    }
+}
+
+// アクセス終わり
+
+// コンタクト始まり
+.contact {
+    background: url("../img/contact-bg.png") center center / cover;
+}
+
+.contact-container {
+    padding: 60px 160px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.contact-header {
+    text-align: center;
+    background: url("../img/contact1.png") center center / cover;
+    color: #fff;
+    border-radius: 12px 12px 0px 0px;
+}
+
+.contact-header-title {
+    font-size: 36px;
+    font-weight: 700;
+    font-family: $Montserrat;
+    padding: 60px 0 16px 0;
+}
+
+.contact-header-txt {
+    padding-bottom: 60px;
+}
+
+.contact-form {
+    background: #fff;
+    padding: 60px 70px 44px 70px;
+}
+
+.contact-item {
+    display: flex;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.contact-item-title {
+    width: 128px;
+    margin-right: 60px;
+    font-weight: 700;
+}
+
+.item-select {
+    border: 1px solid #707070;
+    padding: 6px 12px;
+
+    &:hover {
+        box-shadow: #4973ff80 0 0 5px;
+    }
+}
+
+select {
+    outline: none;
+    border: none;
+}
+
+.is-require {
+    display: inline-block;
+    position: relative;
+
+    &::after {
+        margin-left: 10px;
+        content: "必須";
+        position: absolute;
+        top: 0;
+        font-size: 12px;
+        font-weight: 700;
+        color: #fff;
+        background: #e81919;
+        text-align: center;
+        border-radius: 4px;
+        padding: 2px 8px;
+        line-height: 1;
+    }
+}
+
+.contact-item-input {
+    width: calc(100% - 128px);
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #707070;
+    padding-left: 10px;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus {
+    border-bottom: 1px solid #4973ff;
+    box-shadow: 0 5px 4px #4973ff80;
+    width: 100%;
+    outline: 0;
+}
+
+textarea {
+    min-height: 122px;
+    resize: vertical;
+}
+
+.radio-input {
+    appearance: none;
+    position: absolute;
+}
+
+.contact-radio-wrap {
+    display: flex;
+}
+
+.radio {
+    margin-right: 20px;
+}
+
+.radio-part::before {
+    margin-right: 8px;
+    content: "";
+    border-radius: 50%;
+    border: 1px solid #707070;
+    width: 12px;
+    height: 12px;
+}
+
+.radio-input:checked + .radio-part::after {
+    content: "";
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: #3b69ff;
+    position: absolute;
+    left: 4px;
+}
+
+.radio-part {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.contact-item-input {
+    width: 100%;
+
+    textarea{
+        width: 720px;
+        height: 200px;
+        border: 1px #707070 solid;
+    }
+}
+
+.contact-privacy{
+    position: relative;
+    margin-left:21.32px;
+}
+
+.contact-privacy-input{
+    appearance: none;
+    position: absolute;
+}
+
+
+.contact-privacy-part::before{
+    position: absolute;
+    left: -21.32px;
+    display: block;
+    border: 1px solid orange; //外側は正方形
+    content: '';
+    width: 16px;
+    height: 16px;
+}
+
+.contact-privacy-input:checked + 
+.contact-privacy-part::after{
+    position: absolute;
+    top: 2px;
+    left: -15px;
+    display: block;
+    border-right: 1px solid orange; 
+    border-bottom: 1px solid orange; 
+    content: '';
+    width: 5px; 
+    height: 10px;
+    transform: rotate(45deg);
+}
+
