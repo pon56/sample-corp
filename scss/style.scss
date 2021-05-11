@@ -2,10 +2,11 @@
 
 $breakpoints: (
     "sp": "(max-width:767px)",
-    "pc": "(min-width: 768px)",
+    "tab": "(min-width: 768px) and (max-width: 1200px)",
+    "pc": "(min-width: 1200px)",
 ) !default;
 
-@mixin mq($breakpoint: sm) {
+@mixin mq($breakpoint: sp) {
     @media #{map-get($breakpoints, $breakpoint)} {
         @content;
     }
@@ -17,13 +18,13 @@ $yellow-button: #ffaa3b;
 $box-shadow-color: #3e3e3e33;
 
 // 全体に共通するスタイル
-@include mq(sm) {
+@include mq(sp) {
     .is-pc {
         display: none;
     }
 }
 
-@include mq(md) {
+@include mq(tab) {
     .is-sp {
         display: none;
     }
@@ -32,7 +33,7 @@ $box-shadow-color: #3e3e3e33;
 main {
     background: #f3f3f3;
 
-    @include mq(sm) {
+    @include mq(sp) {
         padding-top: 60px;
     }
 }
@@ -48,7 +49,7 @@ main {
     text-align: center;
     line-height: 1;
 
-    @include mq(sm) {
+    @include mq("sp") {
         font-size: 30px;
     }
 }
@@ -68,7 +69,7 @@ main {
         color: #fff;
     }
 
-    @include mq(md) {
+    @include mq("tab") {
         &:not(.submit) {
             &:hover {
                 background: red;
@@ -81,7 +82,7 @@ main {
 body {
     font-size: 16px;
     color: $font-color;
-    font-family:"Montserrat", "游ゴシック", serif;
+    font-family: "Montserrat", "游ゴシック", serif;
     line-height: 1.5;
 }
 
@@ -94,55 +95,8 @@ img {
     margin: 0 auto;
     box-sizing: content-box;
 
-    @include mq(sm) {
+    @include mq("sp") {
         padding: 0 15px;
-    }
-}
-// ドロワー始まり
-.navbar_toggle{
-    @include mq(sm){
-        z-index:100;
-   
-        .navbar_toggle_icon {
-         position: relative;
-         display: block;
-         height: 2px;
-         width: 30px;
-         background: #5c6b80;
-         -webkit-transition: ease .5s;
-         transition: ease .5s;
-        }
-        
-        .navbar_toggle_icon:nth-child(1) {
-         top: 0;
-        }
-        
-        .navbar_toggle_icon:nth-child(2) {
-         margin: 8px 0;
-        }
-        
-        .navbar_toggle_icon:nth-child(3) {
-         top: 0;
-        }
-     
-        /*OPEN時の動き*/
-        .navbar_toggle.open .navbar_toggle_icon:nth-child(1) {
-         top: 10px;
-         -webkit-transform: rotate(45deg);
-         transform: rotate(45deg);
-        }
-        
-        .navbar_toggle.open .navbar_toggle_icon:nth-child(2) {
-         -webkit-transform: translateY(-50%);
-         transform: translateY(-50%);
-         opacity: 0;
-        }
-        
-        .navbar_toggle.open .navbar_toggle_icon:nth-child(3) {
-         top: -10px;
-         -webkit-transform: rotate(-45deg);
-         transform: rotate(-45deg);
-        }
     }
 }
 
@@ -150,7 +104,6 @@ img {
 
 .drawer-hamburger-icon {
     background-color: $font-color;
-
 }
 
 .drawer--right.drawer-open .drawer-hamburger {
@@ -163,7 +116,7 @@ img {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 300;
     height: 83px;
 }
 
@@ -180,20 +133,22 @@ img {
 }
 
 .header-nav-list {
-    @include mq(md) {
-        display: flex;
+    display: flex;
+
+    @include mq(sp) {
+        display: none;
     }
 }
 
 .header-nav-item {
     padding: 0 10px;
-    @include mq(md) {
+    @include mq("tab") {
         & + & {
             margin-left: 40px;
         }
     }
 
-    &:hover{
+    &:hover {
         border-bottom: $font-color 1px solid;
     }
 }
@@ -203,6 +158,129 @@ img {
     color: $font-color;
     font-weight: 500;
 }
+
+// ヘッダーSP用
+.sp {
+    display: none;
+
+    @include mq(sp) {
+        display: block;
+    }
+}
+
+.drawer-icon-wrapper {
+    @include mq("sp") {
+        position: fixed;
+        top: 20px;
+        right: 50px;
+        z-index: 400;
+        display: none;
+    }
+
+    @include mq("sp") {
+        display: block;
+    }
+
+    &.is-active {
+        // 開かれた時に横に移動する
+        transform: translateX(-500px);
+        transition: transform 0.5s ease 0s;
+
+        .icon-bar1 {
+            // 回転と移動させることで×にする
+            transform: rotate(-45deg);
+            transition: transform 1s ease 0s;
+            top: 8px;
+        }
+
+        .icon-bar2 {
+            display: none;
+        }
+
+        .icon-bar3 {
+            transform: rotate(45deg);
+            transition: transform 1s ease 0s;
+            top: 8px;
+        }
+    }
+}
+
+.header-title-sp {
+    font-size: 23px;
+    font-weight: 700;
+    padding: 16px 20px;
+}
+
+.drawer-icon-bars {
+    width: 24px;
+    height: 24px;
+    display: block;
+    position: relative;
+}
+
+.drawer-icon {
+    position: absolute;
+    width: 24px;
+    height: 4px;
+    background: $font-color;
+    top: 0;
+    left: 0;
+}
+
+.icon-bar1 {
+    top: 0;
+}
+
+.icon-bar2 {
+    top: 8px;
+}
+
+.icon-bar3 {
+    top: 16px;
+}
+
+.drawer-background {
+    @include mq(sp) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 298;
+        display: none;
+        background: rgba(62, 62, 62, 0.7);
+    }
+}
+
+.header-sp {
+    display: none;
+
+    &.is-active {
+        display: block;
+    }
+}
+
+.header-inner-sp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 300;
+    height: 83px;
+    width: 81%;
+    height: 100%;
+    background: #fff;
+    margin-left: auto;
+}
+
+.header-nav-sp {
+    text-align: center;
+}
+
+.header-nav-item-link-sp {
+    color: $font-color;
+}
+
 // ヘッダー終わり
 
 // トップ始まり
@@ -211,6 +289,11 @@ img {
     width: 100%;
     padding-top: 50%;
     background: url("../img/mv.png") center center / cover no-repeat;
+
+    @include mq(sp){
+        height :599px;
+        background: url("../img/mv.png") 20% center no-repeat;
+    }
 }
 
 .top-message {
@@ -219,17 +302,30 @@ img {
     top: 38%;
     transform: translateY(-35%);
     width: 600px;
+
+    @include mq(sp){
+        margin: 0 auto;
+    }
 }
 
 .top-title {
     font-weight: bold;
     font-size: 32px;
+
+    @include mq(sp){
+        font-size: 24px;
+    }
 }
 
 .top-txt {
     margin-top: 40px;
     font-size: 18px;
     font-weight: bold;
+
+    @include mq(sp){
+        font-size: 14px;
+        margin-top: 20px;
+    }
 }
 
 .top-button {
@@ -245,8 +341,8 @@ img {
     border-radius: 10px;
     box-shadow: $box-shadow-color 0 3px 5px;
 
-    &:hover{
-        background: #F18900;
+    &:hover {
+        background: #f18900;
     }
 }
 // トップ終わり
@@ -259,10 +355,18 @@ img {
 .news-inner {
     padding: 60px 60px 80px 60px;
     box-shadow: $box-shadow-color 0 5px 12px;
+
+    @include mq(sp){
+        padding: 30px 30px 40px 30px;
+    }
 }
 
 .news-item {
     padding: 32px 5px;
+
+    @include mq(sp){
+        padding: 20px 3px;
+    }
 
     &:first-child {
         margin-top: 60px;
@@ -274,8 +378,8 @@ img {
         border-bottom: 1px solid #cecdcd;
     }
 
-    &:hover{
-        background: #4973FF1A;
+    &:hover {
+        background: #4973ff1a;
     }
 }
 
@@ -283,6 +387,10 @@ img {
     display: flex;
     align-items: center;
     color: $font-color;
+
+    @include mq(sp){
+        display: block;
+    }
 }
 
 .news-header {
@@ -293,6 +401,18 @@ img {
     font-size: 18px;
     width: 98px;
     margin-right: 40px;
+
+    @include mq(sp){
+    font-size: 14px;
+    width: 76px;
+    margin-right: 20px;
+    }
+}
+
+.news-item-body{
+    @include mq(sp){
+        display: flex;
+    }
 }
 
 .news-lavel {
@@ -305,12 +425,23 @@ img {
     font-size: 14px;
     border: 2px solid #3b69ff;
     margin-right: 40px;
+
+    @include mq(sp){
+        font-size: 12px;
+        width: 81px;
+    }
 }
 
 .news-item-body {
     width: calc(100% - 98px - 121px);
     font-size: 18px;
     margin-right: 40px;
+
+    @include mq(sp){
+        width: 100%;
+        font-size: 14px;
+        margin-right: 20px;
+    }
 }
 
 .news-right {
@@ -334,8 +465,8 @@ img {
         font-size: 20px;
         letter-spacing: 4px;
 
-        &:hover{
-            background: #3E3E3E;
+        &:hover {
+            background: #3e3e3e;
             color: #fff;
         }
     }
@@ -361,27 +492,40 @@ img {
 .service-container {
     margin: 60px auto;
     background: #fff;
-    width: 960px;
+    width: 80%;
     height: 331px;
     box-shadow: $box-shadow-color 0 5px 12px;
 }
 
 .service-list {
+    display: flex;
+    justify-content: space-between;
 
-    @include tab{
-        display: flex;
-        justify-content: space-between;
+    @include mq(sp) {
+        display: block;
     }
 }
 
 .service-item {
     margin: 0 45px;
+
+    @include mq(sp) {
+        margin: 0 20px;
+    }
 }
 
 .service-item-img {
     margin: 60px auto 8px;
     width: 64px;
     height: 64px;
+
+    img {
+        @include mq("sp") {
+            margin: 30px auto 4px;
+            width: 32px;
+            height: 32px;
+        }
+    }
 }
 
 .service-item-title {
@@ -483,7 +627,7 @@ img {
     color: #fff;
     padding: 20px 80px;
 
-    &:hover{
+    &:hover {
         background: #fff;
         color: $font-color;
     }
@@ -500,16 +644,20 @@ img {
     margin-top: 60px;
     margin-left: auto;
     margin-right: auto;
-    width: 960px;
+    width: 80%;
 }
 
 .table {
-    width: inherit;
+    width: 100%;
     border-collapse: collapse;
     border: solid 1px #707070;
     font-size: 24px;
     font-weight: 500;
     table-layout: fixed;
+
+    @include mq(sp) {
+        font-size: 12px;
+    }
 
     th,
     td {
@@ -521,11 +669,19 @@ img {
         width: 262px;
         background: #3e3e3e;
         color: #fff;
+
+        @include mq(sp) {
+            width: 60px;
+        }
     }
 
     td {
         width: calc(100% - 262px);
         background: #fff;
+
+        @include mq(sp) {
+            width: calc(100% - 60px);
+        }
     }
 }
 
@@ -611,6 +767,11 @@ img {
     padding: 16px;
     border-radius: 4px;
     cursor: pointer;
+
+    @include mq(sp){
+        width: 90%;
+        margin: 0 auto;
+    }
 }
 
 .qa-box-q {
@@ -717,7 +878,7 @@ img {
     font-size: 20px;
     font-weight: 600;
 
-    &:hover{
+    &:hover {
         background: #fff;
         color: $font-color;
     }
@@ -771,6 +932,10 @@ img {
     background: #fff;
     padding: 60px 120px 44px 120px;
     border-radius: 12px;
+
+    @include mq(sp){
+        padding:0;
+    }
 }
 
 .contact-item {
@@ -778,7 +943,11 @@ img {
     margin-bottom: 40px;
     align-items: center;
 
-    dd{
+    @include mq(sp){
+        display: block;
+    }
+
+    dd {
         width: calc(100% - 140px);
     }
 }
@@ -787,7 +956,6 @@ img {
     width: 140px;
     margin-right: 50px;
     font-weight: 700;
-    
 }
 
 .item-select {
@@ -795,7 +963,7 @@ img {
     border: 1px solid #707070;
     padding: 6px 12px;
     cursor: pointer;
-    
+
     &:hover {
         box-shadow: rgba(73, 115, 255, 0.5) 0 0 5px;
     }
@@ -856,7 +1024,6 @@ input[type="text"]:focus {
     margin-right: 20px;
 }
 
-
 .radio-part::before {
     margin-right: 8px;
     content: "";
@@ -866,19 +1033,17 @@ input[type="text"]:focus {
     height: 12px;
 }
 
-.radio-part:hover{
-
-    &::before{
-        border: 1px solid #3B69FF;
-        box-shadow:#4973FF33 0 0 6px;
+.radio-part:hover {
+    &::before {
+        border: 1px solid #3b69ff;
+        box-shadow: #4973ff33 0 0 6px;
     }
 }
 
-.radio-part:active{
-
-    &::before{
-        border: 1px solid #3B69FF;
-        background: #4973FF33;
+.radio-part:active {
+    &::before {
+        border: 1px solid #3b69ff;
+        background: #4973ff33;
     }
 }
 
@@ -903,8 +1068,7 @@ input[type="text"]:focus {
     width: 100%;
 }
 
-.contact-item-textarea{
-
+.contact-item-textarea {
     textarea {
         margin-top: 8px;
         width: inherit;
@@ -913,7 +1077,7 @@ input[type="text"]:focus {
         min-height: 122px;
         resize: vertical;
 
-        &:focus{
+        &:focus {
             border-bottom: 1px solid #4973ff;
             box-shadow: 0 0 8px rgba(73, 115, 255, 0.5);
             outline: 0;
@@ -921,129 +1085,128 @@ input[type="text"]:focus {
     }
 }
 
-.contact-footer{
+.contact-footer {
     margin-top: 20px;
 }
 
-.contact-privacy{
+.contact-privacy {
     position: relative;
-    margin-left:21.32px;
+    margin-left: 21.32px;
     cursor: pointer;
 }
 
-.contact-privacy-input{
+.contact-privacy-input {
     appearance: none;
     position: absolute;
 }
 
-
-.contact-privacy-part::before{
+.contact-privacy-part::before {
     position: absolute;
     left: -21.32px;
     display: block;
     border: 1px solid #707070; //外側は正方形
-    content: '';
+    content: "";
     width: 16px;
     height: 16px;
 }
 
-.contact-privacy-input:checked + 
-.contact-privacy-part::after{
+.contact-privacy-input:checked + .contact-privacy-part::after {
     position: absolute;
     top: 2px;
     left: -15px;
     display: block;
-    border-right: 2px solid #3B69FF; 
-    border-bottom: 2px solid #3B69FF; 
-    content: '';
-    width: 5px; 
+    border-right: 2px solid #3b69ff;
+    border-bottom: 2px solid #3b69ff;
+    content: "";
+    width: 5px;
     height: 10px;
     transform: rotate(45deg);
 }
 
-.contact-privacy-part:hover{
-
-    &::before{
-        border: 1px solid #3B69FF;
-        box-shadow:#4973FF33 0 0 6px;
+.contact-privacy-part:hover {
+    &::before {
+        border: 1px solid #3b69ff;
+        box-shadow: #4973ff33 0 0 6px;
     }
 }
 
-.contact-privacy-part:active{
-
-    &::before{
-        border: 1px solid #3B69FF;
-        background: #4973FF33;
+.contact-privacy-part:active {
+    &::before {
+        border: 1px solid #3b69ff;
+        background: #4973ff33;
     }
 }
 
-.contact-submit{
-    background: #FFAA3B;
+.contact-submit {
+    background: #ffaa3b;
     color: #fff;
     border-radius: 10px;
     box-shadow: #00000033 0 3px 5px;
-    border: none;margin-top: 30px;
+    border: none;
+    margin-top: 30px;
     padding: 14px 48px;
 }
 
 // コンタクト終わり
 
-footer{
-    background: #3E3E3E;
+footer {
+    background: #3e3e3e;
     color: #fff;
 }
 
-.footer-inner{
+.footer-inner {
     padding: 60px 160px;
     display: flex;
     justify-content: space-between;
+
+    @include mq(sp){
+        display: block;
+        padding: 0;
+    }
 }
 
-.footer-sns-list{
+.footer-sns-list {
     display: flex;
     margin-bottom: 23px;
 }
 
-.footer-sns-item-link{
-    .fab{
+.footer-sns-item-link {
+    .fab {
         color: #fff;
         opacity: 0.6;
         font-size: 35px;
     }
 
-    &:first-child{
+    &:first-child {
         margin-right: 20px;
     }
 }
 
-.footer-nav-item-link{
+.footer-nav-item-link {
     color: #fff;
     opacity: 0.6;
     margin-bottom: 24px;
 }
 
-.footer-title{
+.footer-title {
     font-size: 40px;
-    color: #E3E3E3;
+    color: #e3e3e3;
     font-weight: 700;
 }
 
-.footer-txt{
+.footer-txt {
     font-size: 12px;
     text-align: right;
     opacity: 0.6;
 }
 
-.to-top{
+.to-top {
     position: fixed;
     right: 5px;
     bottom: 30px;
-    
-    .to-top-img{
+
+    .to-top-img {
         width: 60px;
         height: 60px;
     }
 }
-
-
-

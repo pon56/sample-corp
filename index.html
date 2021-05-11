@@ -33,13 +33,18 @@
 <body>
     <!-- ヘッダー始まり -->
     <header class="header">
-        <div class="header-inner inner">
-            <nav class="header-nav">
-                <div class="navbar_toggle">
-                    <span class="navbar_toggle_icon"></span>
-                    <span class="navbar_toggle_icon"></span>
-                    <span class="navbar_toggle_icon"></span>
+        <div class="header-inner">
+            <div class="sp">
+                <h2 class="header-title-sp">Sample Corp.</h2>
+                <div class="drawer-icon-wrapper">
+                    <div class="drawer-icon-bars">
+                        <div class="icon-bar1 drawer-icon"></div>
+                        <div class="icon-bar2 drawer-icon"></div>
+                        <div class="icon-bar3 drawer-icon"></div>
+                    </div>
                 </div>
+            </div>
+            <nav class="header-nav">
                 <div class="header-menu">
                     <ui class="drawer-menu header-nav-list">
                         <li class="header-nav-item">
@@ -69,6 +74,44 @@
         </div>
     </header>
 
+    <!-- ヘッダースマホ用 -->
+
+    <header class="header-sp">
+        <div class="header-inner-sp">
+            <nav class="header-nav-sp">
+                <div class="header-menu-sp">
+                    <ui class="header-nav-list-sp">
+                        <li class="header-nav-item-sp">
+                            <a href="#News" class="header-nav-item-link-sp">News</a>
+                        </li>
+                        <li class="header-nav-item-sp">
+                            <a href="#Service" class="header-nav-item-link-sp">Service</a>
+                        </li>
+                        <li class="header-nav-item-sp">
+                            <a href="Results" class="header-nav-item-link-sp">Results</a>
+                        </li>
+                        <li class="header-nav-item-sp">
+                            <a href="Price" class="header-nav-item-link-sp">Price</a>
+                        </li>
+                        <li class="header-nav-item-sp">
+                            <a href="Comments" class="header-nav-item-link-sp">Comments</a>
+                        </li>
+                        <li class="header-nav-item-sp">
+                            <a href="FAQs" class="header-nav-item-link-sp">FAQs</a>
+                        </li>
+                        <li class="header-nav-item-sp">
+                            <a href="Contact" class="header-nav-item-link-sp">Contact</a>
+                        </li>
+                    </ui>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="drawer-background"></div>
+
+    <!-- ヘッダー終わり -->
+
     <!-- トップ始まり -->
     <main>
         <div class="top">
@@ -97,9 +140,10 @@
                             </div>
                             <div class="news-item-body">
                                 <p class="news-item-txt">ニュースニュースニュースニュースニュースニュースニュースニュースニュースニュースニュースニュースニュースニュース</p>
-                            </div>
-                            <div class="news-right">
-                                <img src="./img/news-arrow@2x.png" alt="news-arrow" class="news-item-img">
+
+                                <div class="news-right">
+                                    <img src="./img/news-arrow@2x.png" alt="news-arrow" class="news-item-img">
+                                </div>
                             </div>
                         </a>
                     </article>
@@ -113,10 +157,11 @@
                             </div>
                             <div class="news-item-body">
                                 <p class="news-item-txt">ニュースニュースニュースニュースニュースニュースニュース</p>
-                            </div>
+                            
                             <div class="news-right">
                                 <img src="./img/news-arrow@2x.png" alt="news-arrow" class="news-item-img">
                             </div>
+                        </div>
                         </a>
                     </article>
                     <article class="news-item">
@@ -129,10 +174,11 @@
                             </div>
                             <div class="news-item-body">
                                 <p class="news-item-txt">ニュースニュースニュースニュースニュースニュースニュース</p>
-                            </div>
+                            
                             <div class="news-right">
                                 <img src="./img/news-arrow@2x.png" alt="news-arrow" class="news-item-img">
                             </div>
+                        </div>
                         </a>
                     </article>
                     <div class="news-footer wow fadeInUp">
