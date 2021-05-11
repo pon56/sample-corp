@@ -25,6 +25,12 @@ main {
   margin: 120px 40px;
 }
 
+@media (max-width: 767px) {
+  .section {
+    margin: 0;
+  }
+}
+
 .utile-title {
   font-size: 36px;
   font-weight: bold;
@@ -82,7 +88,15 @@ img {
 
 @media (max-width: 767px) {
   .inner {
-    padding: 0 15px;
+    margin: 0 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .inner-sp {
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+    margin: 0 16px;
   }
 }
 
@@ -309,25 +323,27 @@ img {
 
 @media (max-width: 767px) {
   .top-message {
-    margin: 0 auto;
+    width: 100%;
+    position: static;
   }
 }
 
 .top-title {
-  font-weight: bold;
+  font-weight: 700;
   font-size: 32px;
 }
 
 @media (max-width: 767px) {
   .top-title {
     font-size: 24px;
+    margin-top: 100px;
   }
 }
 
 .top-txt {
   margin-top: 40px;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 @media (max-width: 767px) {
@@ -341,6 +357,12 @@ img {
   margin-top: 40px;
 }
 
+@media (max-width: 767px) {
+  .top-button {
+    text-align: center;
+  }
+}
+
 .top-button-link {
   font-weight: bold;
   font-size: 18px;
@@ -352,12 +374,21 @@ img {
           box-shadow: #3e3e3e33 0 3px 5px;
 }
 
+@media (max-width: 767px) {
+  .top-button-link {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+}
+
 .top-button-link:hover {
   background: #f18900;
 }
 
 .news {
   background: #fff;
+  position: relative;
+  top: -50px;
 }
 
 .news-inner {
@@ -369,6 +400,8 @@ img {
 @media (max-width: 767px) {
   .news-inner {
     padding: 30px 30px 40px 30px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
 }
 
@@ -1254,11 +1287,32 @@ footer {
 
 .to-top {
   position: fixed;
-  right: 5px;
-  bottom: 30px;
+  right: 24px;
+  bottom: 24px;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  visibility: hidden;
+  opacity: 0;
 }
 
-.to-top .to-top-img {
+@media (max-width: 767px) {
+  .to-top {
+    right: 12px;
+    bottom: 12px;
+  }
+}
+
+.to-top a img {
   width: 60px;
-  height: 60px;
+}
+
+@media (max-width: 767px) {
+  .to-top a img {
+    width: 40px;
+  }
+}
+
+.to-top.is-active {
+  visibility: visible;
+  opacity: 1;
 }
