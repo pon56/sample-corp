@@ -21,7 +21,8 @@
 
     <!-- googleフォント -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
@@ -33,34 +34,37 @@
     <!-- ヘッダー始まり -->
     <header class="header">
         <div class="header-inner inner">
-            <button type="button" class="drawer-toggle drawer-hamburger">
-                <span class="sr-only">toggle navigation</span>
-                <span class="drawer-hamburger-icon"></span>
-            </button>
-            <nav class="drawer-nav header-nav">
-                <ui class="drawer-menu header-nav-list">
-                    <li class="header-nav-item">
-                        <a href="#News" class="header-nav-item-link">News</a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a href="#Service" class="header-nav-item-link">Service</a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a href="Results" class="header-nav-item-link">Results</a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a href="Price" class="header-nav-item-link">Price</a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a href="Comments" class="header-nav-item-link">Comments</a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a href="FAQs" class="header-nav-item-link">FAQs</a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a href="Contact" class="header-nav-item-link">Contact</a>
-                    </li>
-                </ui>
+            <nav class="header-nav">
+                <div class="navbar_toggle">
+                    <span class="navbar_toggle_icon"></span>
+                    <span class="navbar_toggle_icon"></span>
+                    <span class="navbar_toggle_icon"></span>
+                </div>
+                <div class="header-menu">
+                    <ui class="drawer-menu header-nav-list">
+                        <li class="header-nav-item">
+                            <a href="#News" class="header-nav-item-link">News</a>
+                        </li>
+                        <li class="header-nav-item">
+                            <a href="#Service" class="header-nav-item-link">Service</a>
+                        </li>
+                        <li class="header-nav-item">
+                            <a href="Results" class="header-nav-item-link">Results</a>
+                        </li>
+                        <li class="header-nav-item">
+                            <a href="Price" class="header-nav-item-link">Price</a>
+                        </li>
+                        <li class="header-nav-item">
+                            <a href="Comments" class="header-nav-item-link">Comments</a>
+                        </li>
+                        <li class="header-nav-item">
+                            <a href="FAQs" class="header-nav-item-link">FAQs</a>
+                        </li>
+                        <li class="header-nav-item">
+                            <a href="Contact" class="header-nav-item-link">Contact</a>
+                        </li>
+                    </ui>
+                </div>
             </nav>
         </div>
     </header>
@@ -465,13 +469,12 @@
                             <dd class="contact-item-input">
                                 <div class="contact-radio-wrap">
                                     <label class="radio">
-                                        <input type="radio" name="sample" required class="radio-input"
-                                            value="男性" checked>
+                                        <input type="radio" name="sample" required class="radio-input" value="男性"
+                                            checked>
                                         <span class="radio-part">男性</span>
                                     </label>
                                     <label class="radio">
-                                        <input type="radio" name="sample" required class="radio-input"
-                                            value="女性">
+                                        <input type="radio" name="sample" required class="radio-input" value="女性">
                                         <span class="radio-part">女性</span>
                                     </label>
                                 </div>
@@ -491,12 +494,11 @@
                             <label class="contact-privacy">
                                 <input type="checkbox" name="" required class="contact-privacy-input"
                                     value="個人情報保護方針に同意する">
-                                <span class="contact-privacy-part"></span>
+                                <span class="contact-privacy-part"> 個人情報保護方針に同意する</span>
                             </label>
-                            個人情報保護方針に同意する
                         </p>
                         <div class="contact-footer-submit">
-                            <button class="util-link submit" id="js-submit" type="submit" disabled>送信する</button>
+                            <button class="util-link contact-submit" id="js-submit" type="submit" disabled>送信する</button>
                         </div>
                     </div>
                 </form>
@@ -506,39 +508,42 @@
 
         <!-- フッター始まり -->
         <footer>
-            <div class="footer-left">
-                <ul class="footer-sns-list">
-                    <li class="footer-sns-item">
-                        <a href="#" class="footer-sns-item-link" aria-label="twitter"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li class="footer-sns-item">
-                        <a href="#" class="footer-sns-item-link" aria-label="facebook"><i
-                                class="fab fa-facebook-square"></i></a>
-                    </li>
-                </ul>
-                <ul class="footer-nav-list">
-                    <li class="footer-nav-item">
-                        <a href="#" class="footer-nav-item-link">サイトマップ</a>
-                    </li>
-                    <li class="footer-nav-item">
-                        <a href="#" class="footer-nav-item-link">個人情報保護方針</a>
-                    </li>
-                    <li class="footer-nav-item">
-                        <a href="#" class="footer-nav-item-link">プライバシーポリシー</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="footer-right">
-                <div class="footer-logo">
-                    <h2 class="footer-title">Sample Corp.</h2>
-                    <p class="footer-txt">© デイトラ Landing page Sample.</p>
+            <div class="footer-inner">
+                <div class="footer-left">
+                    <ul class="footer-sns-list">
+                        <li class="footer-sns-item">
+                            <a href="#" class="footer-sns-item-link" aria-label="twitter"><i
+                                    class="fab fa-twitter"></i></a>
+                        </li>
+                        <li class="footer-sns-item">
+                            <a href="#" class="footer-sns-item-link" aria-label="facebook"><i
+                                    class="fab fa-facebook-square"></i></a>
+                        </li>
+                    </ul>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item">
+                            <a href="#" class="footer-nav-item-link">サイトマップ</a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="#" class="footer-nav-item-link">個人情報保護方針</a>
+                        </li>
+                        <li class="footer-nav-item">
+                            <a href="#" class="footer-nav-item-link">プライバシーポリシー</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-logo">
+                        <h2 class="footer-title">Sample Corp.</h2>
+                        <p class="footer-txt">© デイトラ Landing page Sample.</p>
+                    </div>
                 </div>
             </div>
         </footer>
         <!-- フッター終わり -->
 
         <!-- トップへのボタン -->
-        <div class="to-top"><a href="#"><img src="./img/totop@2x.png" alt="to-top"></a></div>
+        <div class="to-top"><a href="#"><img src="./img/totop@2x.png" alt="to-top" class="to-top-img"></a></div>
     </main>
 
 
@@ -547,6 +552,11 @@
 
     <!-- wow.min.js -->
     <script src="wow.min.js"></script>
+
+
+    <!-- drawer.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
 
     <!-- jquery　と　scriptファイル -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
