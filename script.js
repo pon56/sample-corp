@@ -1,9 +1,20 @@
+let slideNumber
+let spaceNumber
+
+if (window.matchMedia('(max-width: 768px)').matches) {
+  slideNumber = 1.3
+  spaceNumber = 20
+} else {
+  slideNumber = 2.9
+  spaceNumber = 40
+}
+
 const swiper = new Swiper('.swiper-container', {
     // Optional parameters
     direction: 'horizontal',
     loop: true,
-    slidesPerView: 2.9,
-    spaceBetween: 40,
+    slidesPerView: slideNumber,
+    spaceBetween: spaceNumber,
 
     // If we need pagination
     pagination: {
