@@ -367,6 +367,10 @@ img {
 .top-button {
     margin-top: 40px;
 
+    @include mq(pc){
+        margin-top: 50px;
+    }
+
     @include mq(sp) {
         text-align: center;
     }
@@ -540,6 +544,10 @@ img {
         font-size: 20px;
         letter-spacing: 4px;
 
+        @include mq(pc){
+            padding: 19px 77px;
+        }
+
         &:hover {
             background: #3e3e3e;
             color: #fff;
@@ -561,6 +569,10 @@ img {
     background: #3e3e3e;
     height: 480px;
     position: relative;
+    
+    @include mq(pc){
+        height: 400px;
+    }
 
     .service-title {
         color: #fff;
@@ -578,6 +590,10 @@ img {
     width: 75%;
     height: 331px;
     box-shadow: $box-shadow-color 0 5px 12px;
+
+    @include mq(pc){
+        margin: 64px auto 60px;
+    }
 
     @include mq(sp) {
         width: 100%;
@@ -703,7 +719,7 @@ img {
 
 .result-inner {
     background: #3e3e3e;
-    padding: 60px 0 85px 60px;
+    padding: 60px 0 75px 60px;
     margin-left: 40px;
 
     @include mq(sp) {
@@ -741,7 +757,7 @@ img {
 
 .result-item-body {
     background: #fff;
-    padding: 16px;
+    padding: 16px 16px 22px;
 
     @include mq(sp) {
         padding: 9px 12px 15px;
@@ -764,7 +780,7 @@ img {
 }
 
 .results-footer {
-    margin-top: 40px;
+    margin-top: 44px;
 
     @include mq(sp) {
         text-align: center;
@@ -775,7 +791,10 @@ img {
 .results-link {
     border: #fff 1px solid;
     color: #fff;
-    padding: 20px 80px;
+    padding: 20px 77px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 4px;
 
     @include mq(sp) {
         margin: 0 auto;
@@ -1151,7 +1170,7 @@ img {
 
 .access-link-map {
     border: 1px solid #fff;
-    padding: 20px 80px;
+    padding: 19px 78px;
     color: #fff;
     font-size: 20px;
     font-weight: 600;
@@ -1354,6 +1373,7 @@ input[type="email"] {
     border: none;
     border-bottom: 1px solid #707070;
     padding-left: 10px;
+    font-size: 16px;
 
     @include mq(sp){
         height: 30px;
@@ -1464,7 +1484,7 @@ input[type="text"]:focus {
 }
 
 .contact-footer {
-    margin-top: 30px;
+    margin-top: 32px;
 
     @include mq(sp){
         margin-top: 25px;
@@ -1577,7 +1597,7 @@ footer {
 }
 
 .footer-inner {
-    padding: 60px 160px;
+    padding: 50px 160px;
     display: flex;
     justify-content: space-between;
 

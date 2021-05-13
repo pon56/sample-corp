@@ -393,6 +393,12 @@ img {
   margin-top: 40px;
 }
 
+@media (min-width: 1200px) {
+  .top-button {
+    margin-top: 50px;
+  }
+}
+
 @media (max-width: 767px) {
   .top-button {
     text-align: center;
@@ -603,6 +609,12 @@ img {
   letter-spacing: 4px;
 }
 
+@media (min-width: 1200px) {
+  .news-footer .news-footer-link {
+    padding: 19px 77px;
+  }
+}
+
 .news-footer .news-footer-link:hover {
   background: #3e3e3e;
   color: #fff;
@@ -624,6 +636,12 @@ img {
   position: relative;
 }
 
+@media (min-width: 1200px) {
+  .service-bg {
+    height: 400px;
+  }
+}
+
 .service-bg .service-title {
   color: #fff;
   padding-top: 60px;
@@ -642,6 +660,12 @@ img {
   height: 331px;
   -webkit-box-shadow: #3e3e3e33 0 5px 12px;
           box-shadow: #3e3e3e33 0 5px 12px;
+}
+
+@media (min-width: 1200px) {
+  .service-container {
+    margin: 64px auto 60px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -787,7 +811,7 @@ img {
 
 .result-inner {
   background: #3e3e3e;
-  padding: 60px 0 85px 60px;
+  padding: 60px 0 75px 60px;
   margin-left: 40px;
 }
 
@@ -833,7 +857,7 @@ img {
 
 .result-item-body {
   background: #fff;
-  padding: 16px;
+  padding: 16px 16px 22px;
 }
 
 @media (max-width: 767px) {
@@ -860,7 +884,7 @@ img {
 }
 
 .results-footer {
-  margin-top: 40px;
+  margin-top: 44px;
 }
 
 @media (max-width: 767px) {
@@ -873,7 +897,10 @@ img {
 .results-link {
   border: #fff 1px solid;
   color: #fff;
-  padding: 20px 80px;
+  padding: 20px 77px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 4px;
 }
 
 @media (max-width: 767px) {
@@ -1313,7 +1340,7 @@ img {
 
 .access-link-map {
   border: 1px solid #fff;
-  padding: 20px 80px;
+  padding: 19px 78px;
   color: #fff;
   font-size: 20px;
   font-weight: 600;
@@ -1549,6 +1576,7 @@ input[type="email"] {
   border: none;
   border-bottom: 1px solid #707070;
   padding-left: 10px;
+  font-size: 16px;
 }
 
 @media (max-width: 767px) {
@@ -1677,7 +1705,7 @@ input[type="text"]:focus {
 }
 
 .contact-footer {
-  margin-top: 30px;
+  margin-top: 32px;
 }
 
 @media (max-width: 767px) {
@@ -1799,7 +1827,7 @@ footer {
 }
 
 .footer-inner {
-  padding: 60px 160px;
+  padding: 50px 160px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
