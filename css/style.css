@@ -537,6 +537,7 @@ img {
   font-size: 14px;
   border: 2px solid #3b69ff;
   margin-right: 40px;
+  background: #fff;
 }
 
 @media (max-width: 767px) {
