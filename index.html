@@ -8,6 +8,15 @@
     <title>Document</title>
     <meta name="description" content="サイトの説明">
 
+    <!-- ツイッターカード -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@PONM973" />
+    <meta property="og:url" content="https://pon56.github.io/sample-corp/" />
+    <meta property="og:title" content="sample company" />
+    <meta property="og:description" content="デイトラ中級編最終課題" />
+    <meta property="og:image" content="画像のURL" />
+
+
     <!-- swiper.css -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
@@ -36,13 +45,6 @@
         <div class="header-inner">
             <div class="sp">
                 <h2 class="header-title-sp">Sample Corp.</h2>
-                <div class="drawer-icon-wrapper">
-                    <div class="drawer-icon-bars">
-                        <div class="icon-bar1 drawer-icon"></div>
-                        <div class="icon-bar2 drawer-icon"></div>
-                        <div class="icon-bar3 drawer-icon"></div>
-                    </div>
-                </div>
             </div>
             <nav class="header-nav">
                 <div class="header-menu">
@@ -75,6 +77,13 @@
     </header>
 
     <!-- ヘッダースマホ用 -->
+    <div class="drawer-icon-wrapper">
+        <div class="drawer-icon-bars">
+            <div class="icon-bar1 drawer-icon"></div>
+            <div class="icon-bar2 drawer-icon"></div>
+            <div class="icon-bar3 drawer-icon"></div>
+        </div>
+    </div>
 
     <header class="header-sp">
         <div class="header-inner-sp">
@@ -137,13 +146,14 @@
                             <div class="news-header">
                                 <p class="news-item-date">
                                     <time datetime="2019-02-01">2019-02-01</time>
+                                <div class="news-label">テキスト</div>
                                 </p>
-                                <div class="news-lavel">テキスト</div>
                             </div>
-                            <div class="news-item-body">
-                                <p class="news-item-txt">ニュースニュースニュースニュースニュースニュースニュースニュースニュースニュースニュースニュースニュースニュース
-                                </p>
-
+                            <div class="news-body">
+                                <div class="news-item-body">
+                                    <p class="news-item-txt">ニュースニュースニュースニュースニュースニュースニュースニュースニュースニュースニュースニュースニュースニュース
+                                    </p>
+                                </div>
                                 <div class="news-right">
                                     <img src="./img/news-arrow@2x.png" alt="news-arrow" class="news-item-img">
                                 </div>
@@ -155,12 +165,13 @@
                             <div class="news-header">
                                 <p class="news-item-date">
                                     <time datetime="2019-02-01">2019-02-01</time>
-                                <div class="news-lavel">テキスト</div>
+                                <div class="news-label">テキスト</div>
                                 </p>
                             </div>
-                            <div class="news-item-body">
-                                <p class="news-item-txt">ニュースニュースニュースニュースニュースニュースニュース</p>
-
+                            <div class="news-body">
+                                <div class="news-item-body">
+                                    <p class="news-item-txt">ニュースニュースニュースニュースニュースニュースニュース</p>
+                                </div>
                                 <div class="news-right">
                                     <img src="./img/news-arrow@2x.png" alt="news-arrow" class="news-item-img">
                                 </div>
@@ -172,12 +183,13 @@
                             <div class="news-header">
                                 <p class="news-item-date">
                                     <time datetime="2019-02-01">2019-02-01</time>
+                                <div class="news-label">テキスト</div>
                                 </p>
-                                <div class="news-lavel">テキスト</div>
                             </div>
-                            <div class="news-item-body">
-                                <p class="news-item-txt">ニュースニュースニュースニュースニュースニュースニュース</p>
-
+                            <div class="news-body">
+                                <div class="news-item-body">
+                                    <p class="news-item-txt">ニュースニュースニュースニュースニュースニュースニュース</p>
+                                </div>
                                 <div class="news-right">
                                     <img src="./img/news-arrow@2x.png" alt="news-arrow" class="news-item-img">
                                 </div>
@@ -480,10 +492,10 @@
                     <p class="contact-header-title">Contact Us</p>
                     <p class="contact-header-txt">どこへ越しても住みにくいと悟った時、詩が生れて、画が出来る。</p>
                 </div>
-                <form action="" class="contact-form">
+                <form action="" class="contact-form" id="js-form">
                     <dl class="contact-list">
                         <div class="contact-item">
-                            <dt class="contact-item-title">
+                            <dt class="contact-item-title contact-item-title-select">
                                 お問い合わせ種別
                             </dt>
                             <dd class="contact-item-select">

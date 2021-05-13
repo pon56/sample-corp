@@ -129,11 +129,11 @@ img {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 300;
+    z-index: 200;
     height: 83px;
 
-    @include mq(sp){
-        background: #F3F3F3;
+    @include mq(sp) {
+        background: #f3f3f3;
         height: 68px;
     }
 }
@@ -159,12 +159,7 @@ img {
 }
 
 .header-nav-item {
-    padding: 0 10px;
-    @include mq("tab") {
-        & + & {
-            margin-left: 40px;
-        }
-    }
+    padding: 0 19px;
 
     &:hover {
         border-bottom: $font-color 1px solid;
@@ -187,17 +182,20 @@ img {
 }
 
 .drawer-icon-wrapper {
+    display: none;
+
     @include mq("sp") {
         position: fixed;
         top: 25px;
         right: 20px;
-        z-index: 400;
+        z-index: 300;
         display: block;
     }
 
     &.is-active {
         // 開かれた時に横に移動する
-        transform: translateX(-500px);
+        right: 84%;
+        // transform: translateX(-80%);
         transition: transform 0.5s ease 0s;
 
         .icon-bar1 {
@@ -239,6 +237,11 @@ img {
     background: $font-color;
     top: 0;
     left: 0;
+    transform: all 5s;
+
+    &.is-active {
+        background: #fff;
+    }
 }
 
 .icon-bar1 {
@@ -266,55 +269,69 @@ img {
     }
 }
 
-.header-sp {
-    display: none;
+.header-inner-sp {
+    padding-top: 160px;
+    width: 80%;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(#000, 0.16);
+    z-index: 300;
+    transform: translateX(105%);
+    transition: transform 0.5s ease 0s;
 
     &.is-active {
-        display: block;
+        transform: translateX(0);
     }
-}
-
-.header-inner-sp {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 300;
-    height: 83px;
-    width: 81%;
-    height: 100%;
-    background: #fff;
-    margin-left: auto;
 }
 
 .header-nav-sp {
     text-align: center;
 }
 
+.header-nav-item-sp {
+    margin-bottom: 27px;
+}
+
 .header-nav-item-link-sp {
     color: $font-color;
+    font-size: 18px;
+    font-weight: 600;
 }
 // ヘッダー終わり
 
 // トップ始まり
+
 .top-img {
+    padding-bottom: 7px;
     position: relative;
     width: 100%;
     padding-top: 50%;
     background: url("../img/mv.png") center center / cover no-repeat;
 
+    @include mq(tab) {
+        height: 500px;
+    }
+
     @include mq(sp) {
         height: 599px;
-        background: url("../img/mv.png") 20% center no-repeat;
+        background: url("../img/mv.png") 21% 130% no-repeat;
     }
 }
 
 .top-message {
     position: absolute;
     right: 40px;
-    top: 38%;
-    transform: translateY(-35%);
+    top: 50%;
+    transform: translateY(-38%);
     width: 600px;
+
+    @include mq(tab) {
+        top: 50%;
+        transform: translateY(-50%);
+    }
 
     @include mq(sp) {
         width: 100%;
@@ -326,14 +343,18 @@ img {
     font-weight: 700;
     font-size: 32px;
 
+    @include mq(tab) {
+        font-size: 30px;
+    }
+
     @include mq(sp) {
         font-size: 24px;
-        margin-top: 100px;
+        margin-top: 45px;
     }
 }
 
 .top-txt {
-    margin-top: 40px;
+    margin-top: 30px;
     font-size: 18px;
     font-weight: 700;
 
@@ -373,39 +394,47 @@ img {
 
 // ニュース始まり
 .news {
-    background: #fff;
     position: relative;
-    top: -50px;
+
+    @include mq(sp) {
+        top: -40px;
+    }
 }
 
 .news-inner {
-    padding: 60px 60px 80px 60px;
+    padding: 60px;
+    padding-bottom: 58px;
     box-shadow: $box-shadow-color 0 5px 12px;
+    background: #fff;
 
     @include mq(sp) {
         margin: 0;
-        padding:0;
+        padding: 0;
         padding-bottom: 50px;
         box-shadow: none;
     }
 }
-.news-title{
-    padding-top: 40px;
+.news-title {
+    padding-top: 6px;
+    @include mq(sp) {
+        padding-top: 45px;
+        margin-bottom: 42px;
+    }
 }
 
 .news-item {
-    padding: 32px 5px;
+    padding: 38px 0;
 
     @include mq(sp) {
-        padding: 20px 3px;
+        padding: 12px 17px 14px;
     }
 
     &:first-child {
-        margin-top: 60px;
+        margin-top: 63px;
         border-top: 1px solid #cecdcd;
         border-bottom: 1px solid #cecdcd;
 
-        @include mq(sp){
+        @include mq(sp) {
             margin-top: 30px;
         }
     }
@@ -437,6 +466,7 @@ img {
     font-size: 18px;
     width: 98px;
     margin-right: 40px;
+    margin-top: 4px;
 
     @include mq(sp) {
         font-size: 14px;
@@ -445,11 +475,7 @@ img {
     }
 }
 
-.news-item-body {
-        display: flex;
-}
-
-.news-lavel {
+.news-label {
     display: inline-block;
     width: 121px;
     height: 32px;
@@ -468,13 +494,21 @@ img {
     }
 }
 
+.news-body {
+    display: flex;
+    width: calc(91% - 98px - 121px);
+    // align-items: center;
+
+    @include mq(sp) {
+        width: 100%;
+    }
+}
+
 .news-item-body {
-    width: calc(100% - 98px - 121px);
     font-size: 18px;
     margin-right: 40px;
 
     @include mq(sp) {
-        width: 100%;
         font-size: 14px;
         margin-right: 20px;
     }
@@ -490,16 +524,16 @@ img {
 }
 
 .news-footer {
-    margin-top: 80px;
+    margin-top: 59px;
     text-align: center;
 
-    @include mq(sp){
+    @include mq(sp) {
         margin-top: 50px;
     }
 
     .news-footer-link {
         border: 1px solid $font-color;
-        padding: 20px 80px;
+        padding: 14px 93px;
         color: $font-color;
         font-weight: 600;
         font-size: 20px;
@@ -515,39 +549,39 @@ img {
 
 // サービス始まり
 .service {
-    margin: 120px 0 240px 0;
+    margin: 120px 0 211px 0;
 
-    @include mq(sp){
-    margin: 60px 0 550px 0;
+    @include mq(sp) {
+        margin: 24px 0 390px 0;
     }
 }
 
 .service-bg {
     background: #3e3e3e;
-    height: 400px;
+    height: 480px;
     position: relative;
 
     .service-title {
         color: #fff;
         padding-top: 60px;
 
-        @include mq(sp){
-            padding-top: 40px;
+        @include mq(sp) {
+            padding-top: 42px;
         }
     }
 }
 
 .service-container {
-    margin: 60px auto;
+    margin: 43px auto 60px;
     background: #fff;
-    width: 80%;
+    width: 75%;
     height: 331px;
     box-shadow: $box-shadow-color 0 5px 12px;
 
-    @include mq(sp){
+    @include mq(sp) {
         width: 100%;
         padding-top: 40px;
-        height: 694px;
+        height: 656px;
     }
 }
 
@@ -563,20 +597,23 @@ img {
 .service-item {
     margin: 0 45px;
 
+    @include mq(tab) {
+        margin: 0 20px;
+    }
+
     @include mq(sp) {
-        margin: 20px 20px;
+        margin: 12px 19px 47px;
     }
 }
 
 .service-item-img {
-    margin: 60px auto 8px;
-    width: 64px;
-    height: 64px;
+    margin: 79px auto 1px;
+    width: 50px;
+    height: 50px;
 
-
-        @include mq("sp") {
-            margin: 0 auto 8px;
-        }
+    @include mq("sp") {
+        margin: 0 auto 8px;
+    }
 }
 
 .service-item-title {
@@ -584,16 +621,17 @@ img {
     font-size: 20px;
     font-weight: bold;
     line-height: 1.4;
+    letter-spacing: 4px;
 }
 
 .service-item-txt {
     font-size: 14px;
     line-height: 1.7;
-    margin-top: 20px;
-    width: 230px;
+    margin-top: 16px;
 
-    @include mq(sp){
+    @include mq(sp) {
         width: 100%;
+        margin-top: 12px;
     }
 }
 
@@ -601,10 +639,11 @@ img {
 
 // リザルト始まり
 .swiper-container {
-    padding-bottom: 80px;
+    padding-bottom: 73px;
 
-    @include mq(sp){
-        height: 325px;
+    @include mq(sp) {
+        height: 310px;
+        padding-left: 16px;
     }
 }
 
@@ -630,32 +669,44 @@ img {
     }
 }
 
+.swiper-container-horizontal>
+.swiper-pagination-bullets 
+.swiper-pagination-bullet{
+    @include mq(sp){
+        padding: 0 5px;
+    }
+}
+
 .swiper-container-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
     padding-left: 5px;
+
+    @include mq(sp){
+        padding-left: 10px;
+    }
+
 }
 
 .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 .swiper-pagination {
     text-align: left;
 
-    @include mq(sp){
+    @include mq(sp) {
         text-align: center;
     }
 }
 
 .result-inner {
     background: #3e3e3e;
-    padding: 60px 0 80px 60px;
+    padding: 60px 0 85px 60px;
     margin-left: 40px;
 
-    @include mq(sp){
-        padding:40px 0;
-        padding-left: 16px;
+    @include mq(sp) {
+        padding: 35px 0 51px;
         margin: 0;
     }
 }
@@ -664,10 +715,11 @@ img {
     color: #fff;
     font-size: 36px;
     font-weight: 500;
-    margin-bottom: 60px;
+    margin-bottom: 52px;
 
-    @include mq(sp){
-        margin-bottom:30px;
+    @include mq(sp) {
+        font-size: 30px;
+        margin-bottom: 38px;
         text-align: center;
     }
 }
@@ -677,11 +729,11 @@ img {
 }
 
 .results-item {
-    width: 400px;
+    width: 300px;
     height: 366px;
 
-    @include mq(sp){
-        margin-right: 20px; 
+    @include mq(sp) {
+        margin-right: 20px;
         width: 275px;
     }
 }
@@ -689,26 +741,34 @@ img {
 .result-item-body {
     background: #fff;
     padding: 16px;
+
+    @include mq(sp) {
+        padding: 9px 12px 15px;
+    }
 }
 
 .results-item-title {
     font-size: 20px;
     font-weight: bold;
 
-    @include mq(sp){
+    @include mq(sp) {
         font-size: 14px;
     }
 }
 
-.results-item-txt{
-    @include mq(sp){
+.results-item-txt {
+    @include mq(sp) {
         font-size: 12px;
     }
 }
 
 .results-footer {
     margin-top: 40px;
-    text-align: center;
+
+    @include mq(sp) {
+        text-align: center;
+        margin-top: 25px;
+    }
 }
 
 .results-link {
@@ -716,9 +776,11 @@ img {
     color: #fff;
     padding: 20px 80px;
 
-    @include mq(sp){
+    @include mq(sp) {
         margin: 0 auto;
-        padding: 16px 100px;
+        padding: 15px 99px;
+        font-size: 18px;
+        letter-spacing: 3.6px;
     }
 
     &:hover {
@@ -726,15 +788,14 @@ img {
         color: $font-color;
     }
 }
-
 // リザルト終わり
 
 // プライス始まり
 .price {
-    padding: 120px 0;
+    padding: 130px 0;
 
-    @include mq(sp){
-        padding: 60px 0;
+    @include mq(sp) {
+        padding: 45px 0;
     }
 }
 
@@ -744,8 +805,9 @@ img {
     margin-right: auto;
     width: 80%;
 
-    @include mq(sp){
+    @include mq(sp) {
         width: 100%;
+        margin-top: 42px;
     }
 }
 
@@ -764,7 +826,12 @@ img {
     th,
     td {
         border: solid 1px #707070;
-        padding: 16px;
+        padding: 12px 40px;
+        padding-right: 39px;
+
+        @include mq(sp){
+            padding: 12px 0;
+        }
     }
 
     th {
@@ -783,15 +850,16 @@ img {
 
         @include mq(sp) {
             width: calc(100% - 100px);
+            padding-left: 20px;
         }
     }
 }
 
 .price-table-txt {
-    font-size: 14px;
-    margin-top: 10px;
+    font-size: 12px;
+    margin-top: 7px;
 
-    @include mq(sp){
+    @include mq(sp) {
         font-size: 12px;
         margin-top: 8px;
     }
@@ -801,15 +869,23 @@ img {
 // コメント始まり
 .comments {
     margin-top: 140px;
+
+    @include mq(sp){
+        margin-top: 70px;
+    }
 }
 
 .comments-bg {
     position: relative;
-    background: linear-gradient(to right, #3e3e3e 0%, #3e3e3e 76%, #f3f3f3 76%, #f3f3f3 100%);
+    background: linear-gradient(to right, #3e3e3e 0%, #3e3e3e 76.5%, #f3f3f3 76.5%, #f3f3f3 100%);
     width: 100%;
-    height: 576px;
-    
-    @include mq(sp){
+    height: 570px;
+
+    @include mq(tab) {
+        background: linear-gradient(to right, #3e3e3e 0%, #3e3e3e 90%, #f3f3f3 90%, #f3f3f3 100%);
+    }
+
+    @include mq(sp) {
         height: 425.5px;
         background: #3e3e3e;
     }
@@ -819,7 +895,7 @@ img {
     width: 100%;
     display: flex;
 
-    @include mq(sp){
+    @include mq(sp) {
         display: block;
     }
 }
@@ -828,22 +904,28 @@ img {
     position: absolute;
     width: 52%;
     background: #fff;
-    top: -150px;
+    top: -155px;
     height: 604px;
 
-    @include mq(sp){
+    @include mq(tab) {
         width: inherit;
-        height: 500px;
+        margin: 0 20px;
+    }
+
+    @include mq(sp) {
+        width: inherit;
+        height: 426px;
+        top: -63px;
     }
 }
 
 .comments-title {
     font-size: 36px;
-    margin: 120px 60px 60px 60px;
+    margin: 115px 60px 55px 60px;
     font-weight: bold;
 
-    @include mq(sp){
-        margin: 40px 20px;
+    @include mq(sp) {
+        margin: 40px 20px 32px;
         font-size: 30px;
     }
 }
@@ -851,8 +933,8 @@ img {
 .comments-item {
     display: flex;
 
-    @include mq(sp){
-        margin-bottom: 40px;
+    @include mq(sp) {
+        margin-bottom: 30px;
     }
 }
 
@@ -861,7 +943,7 @@ img {
         width: 100px;
         margin: 0 32px 60px 60px;
 
-        @include mq(sp){
+        @include mq(sp) {
             width: 60px;
             margin: 0 20px 20px;
         }
@@ -871,7 +953,7 @@ img {
 .comments-item-message {
     width: 60%;
 
-    @include mq(sp){
+    @include mq(sp) {
         font-size: 14px;
     }
 }
@@ -879,9 +961,13 @@ img {
 .comments-right {
     position: absolute;
     right: 40px;
-    top: -70px;
+    top: -75px;
 
-    @include mq(sp){
+    @include mq(tab) {
+        display: none;
+    }
+
+    @include mq(sp) {
         display: none;
     }
 }
@@ -894,16 +980,16 @@ img {
     background: url("../img/qa-bg.png") center center / cover;
     padding: 60px 0 120px 0;
 
-    @include mq(sp){
-        height: 860px;
-        padding-top: 40px;
+    @include mq(sp) {
+        height: 820px;
+        padding-top: 45px;
     }
 }
 
 .qa-container {
-    margin-top: 60px;
+    margin-top: 69px;
 
-    @include mq(sp){
+    @include mq(sp) {
         margin-top: 40px;
     }
 }
@@ -915,7 +1001,7 @@ img {
     margin-left: auto;
     background: #fff;
     width: 612px;
-    padding: 16px;
+    padding: 15px;
     border-radius: 4px;
     cursor: pointer;
 
@@ -930,20 +1016,21 @@ img {
 }
 
 .q-txt {
-    margin-left: 35px;
+    margin-left: 41px;
 
     &::before {
         position: absolute;
         content: "Q";
         background: #3b69ff;
         border-radius: 50%;
-        top: 0;
+        top: 50%;
         left: 0;
         color: #fff;
         font-weight: 700;
         width: 24px;
         height: 24px;
         text-align: center;
+        transform: translateY(-50%);
     }
 }
 
@@ -951,7 +1038,7 @@ img {
     width: 17px;
     height: 17px;
     position: absolute;
-    right: 14px;
+    right: 0px;
     top: 50%;
     transform: translateY(-50%);
 
@@ -992,29 +1079,42 @@ img {
     margin-top: 18px;
     background: #3b69ff33;
     border-radius: 4px;
-    padding: 16px;
+    padding: 12px 12px 12px 16px;
 }
 // Q%A終わり
 
 // アクセス始まり
 .access {
     margin-bottom: 256px;
-    
-    @include mq(sp){
+
+    @include mq(tab) {
+        background: #3e3e3e;
+        height: 600px;
+        margin-bottom: 0;
+        position: relative;
+    }
+
+    @include mq(sp) {
         margin-bottom: 0;
     }
 }
 
 .access-left {
     background: linear-gradient(to right, #3e3e3e 0%, #3e3e3e 76%, #f3f3f3 76%, #f3f3f3 100%);
-    padding: 120px 100px;
+    padding: 115px 100px 137px;
     color: #fff;
     position: relative;
 
-    @include mq(sp){
+    @include mq(tab) {
+        background: #3e3e3e;
+        padding: 60px 50px;
+        height: inherit;
+    }
+
+    @include mq(sp) {
         background: #3e3e3e;
         position: static;
-        padding: 40px 0 60px;
+        padding: 38px 0 73px;
     }
 }
 
@@ -1022,24 +1122,29 @@ img {
     font-weight: 600;
     font-size: 36px;
 
-    @include mq(sp){
+    @include mq(sp) {
         font-size: 30px;
     }
 }
 
 .access-info {
-    margin-top: 60px;
-    @include mq(sp){
+    margin-top: 52px;
+    @include mq(sp) {
         font-size: 14px;
-        margin-top: 40px;
+        margin-top: 31px;
     }
 }
 
 .access-link {
-    margin-top: 52px;
+    margin-top: 45px;
 
-    @include mq(sp){
+    @include mq(tab) {
+        position: absolute;
+    }
+
+    @include mq(sp) {
         text-align: center;
+        margin-top: 30px;
     }
 }
 
@@ -1049,6 +1154,12 @@ img {
     color: #fff;
     font-size: 20px;
     font-weight: 600;
+    letter-spacing: 2px;
+
+    @include mq(sp){
+        font-size: 18px;
+        padding: 15px 97px;
+    }
 
     &:hover {
         background: #fff;
@@ -1059,11 +1170,17 @@ img {
 .access-right {
     position: absolute;
     top: 120px;
-    right: 40px;
+    right: 0;
     width: 60%;
 
-    @include mq(sp){
-        margin-top: 24px;
+    @include mq(tab) {
+        top: 25px;
+        right: 25px;
+        width: 50%;
+    }
+
+    @include mq(sp) {
+        margin-top: 19px;
         position: static;
         width: 100%;
     }
@@ -1074,7 +1191,7 @@ img {
         height: 520px;
         width: 100%;
 
-        @include mq(sp){
+        @include mq(sp) {
             height: 241px;
         }
     }
@@ -1087,13 +1204,17 @@ img {
 }
 
 .contact-container {
-    padding: 60px 120px;
+    padding: 60px 97px;
     width: 90%;
     margin: 0 auto;
 
-    @include mq(sp){
+    @include mq(tab) {
+        padding: 30px 0;
+    }
+
+    @include mq(sp) {
         width: 100%;
-        padding:40px 0;
+        padding: 40px 0;
     }
 }
 
@@ -1103,7 +1224,7 @@ img {
     color: #fff;
     border-radius: 12px 12px 0px 0px;
 
-    @include mq(sp){
+    @include mq(sp) {
         padding: 0 16px;
     }
 }
@@ -1111,20 +1232,20 @@ img {
 .contact-header-title {
     font-size: 36px;
     font-weight: 700;
-    padding: 60px 0 16px 0;
+    padding: 55px 0 7px 0;
 
-    @include mq(sp){
+    @include mq(sp) {
         font-weight: 600;
         font-size: 30px;
-        padding: 40px 0 12px 0
+        padding: 38px 0 3px 0;
     }
 }
 
 .contact-header-txt {
-    padding-bottom: 60px;
+    padding-bottom: 55px;
 
-    @include mq(sp){
-        padding-bottom: 40px;
+    @include mq(sp) {
+        padding-bottom: 36px;
         font-size: 14px;
         text-align: left;
     }
@@ -1132,27 +1253,28 @@ img {
 
 .contact-form {
     background: #fff;
-    padding: 60px 120px 44px 120px;
+    padding: 60px 120px;
     border-radius: 0 0 12px 12px;
 
     @include mq(sp) {
-        padding:30px 12px;
+        padding: 37px 12px;
     }
 }
 
 .contact-item {
     display: flex;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     align-items: center;
 
     @include mq(sp) {
         display: block;
+        margin-bottom: 30px;
     }
 
     dd {
         width: calc(100% - 140px);
 
-        @include mq(sp){
+        @include mq(sp) {
             width: 100%;
         }
     }
@@ -1160,9 +1282,15 @@ img {
 
 .contact-item-title {
     width: 140px;
-    margin-right: 50px;
+    margin-right: 60px;
     font-weight: 700;
 
+    @include mq(sp) {
+        margin-bottom: 0;
+    }   
+}
+
+.contact-item-title-select{
     @include mq(sp){
         margin-bottom: 10px;
     }
@@ -1171,10 +1299,10 @@ img {
 .item-select {
     width: 178px;
     border: 1px solid #707070;
-    padding: 6px 12px;
+    padding: 6px 8px;
     cursor: pointer;
 
-    @include mq(sp){
+    @include mq(sp) {
         width: 100%;
     }
 
@@ -1186,9 +1314,10 @@ img {
 select {
     outline: none;
     border: none;
+    width: 153px;
 
-    @include mq(sp){
-        padding-right: 160px;
+    @include mq(sp) {
+        width: 299px;
         background: transparent;
     }
 }
@@ -1210,6 +1339,10 @@ select {
         border-radius: 4px;
         padding: 2px 8px;
         line-height: 1;
+
+        @include mq(sp){
+            margin-left: 19px;
+        }
     }
 }
 
@@ -1220,6 +1353,10 @@ input[type="email"] {
     border: none;
     border-bottom: 1px solid #707070;
     padding-left: 10px;
+
+    @include mq(sp){
+        height: 30px;
+    }
 }
 
 input[type="email"]:focus,
@@ -1237,12 +1374,16 @@ input[type="text"]:focus {
 
 .contact-radio-wrap {
     display: flex;
+
+    @include mq(sp){
+        margin-top: 2px;
+    }
 }
 
 .radio {
-    margin-right: 20px;
+    margin-right: 35px;
 
-    @include mq(sp){
+    @include mq(sp) {
         margin-right: 40px;
     }
 }
@@ -1254,6 +1395,11 @@ input[type="text"]:focus {
     border: 1px solid #707070;
     width: 12px;
     height: 12px;
+
+    @include mq(sp){
+        width: 10px;
+        height: 10px;
+    }
 }
 
 .radio-part:hover {
@@ -1278,6 +1424,10 @@ input[type="text"]:focus {
     background-color: #3b69ff;
     position: absolute;
     left: 4px;
+
+    @include mq(sp){
+        left: 3px;
+    }
 }
 
 .radio-part {
@@ -1293,14 +1443,14 @@ input[type="text"]:focus {
 
 .contact-item-textarea {
     textarea {
-        margin-top: 8px;
+        margin-top: 7px;
         width: inherit;
-        height: 200px;
+        height: 198px;
         border: 1px #707070 solid;
         min-height: 122px;
         resize: vertical;
 
-        @include mq(sp){
+        @include mq(sp) {
             height: 160px;
         }
 
@@ -1313,13 +1463,27 @@ input[type="text"]:focus {
 }
 
 .contact-footer {
-    margin-top: 20px;
+    margin-top: 30px;
+
+    @include mq(sp){
+        margin-top: 25px;
+    }
 }
 
 .contact-privacy {
     position: relative;
     margin-left: 21.32px;
     cursor: pointer;
+}
+
+.contact-privacy-part {
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 19px;
+
+    @include mq(sp){
+        font-size: 16px;
+    }
 }
 
 .contact-privacy-input {
@@ -1333,8 +1497,13 @@ input[type="text"]:focus {
     display: block;
     border: 1px solid #707070; //外側は正方形
     content: "";
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
+
+    @include mq(sp){
+        width: 16px;
+        height: 16px;
+    }
 }
 
 .contact-privacy-input:checked + .contact-privacy-part::after {
@@ -1364,20 +1533,35 @@ input[type="text"]:focus {
     }
 }
 
-.contact-footer-submit{
-    @include mq(sp){
+.contact-footer-submit {
+    @include mq(sp) {
         text-align: center;
     }
 }
 
 .contact-submit {
-    background: #ffaa3b;
+    background: #B2B2B2;
     color: #fff;
     border-radius: 10px;
     box-shadow: #00000033 0 3px 5px;
     border: none;
-    margin-top: 30px;
-    padding: 14px 48px;
+    margin-top: 35px;
+    padding: 13px 46px;
+    font-size: 18px;
+    font-weight: 700;
+    
+    @include mq(sp){
+        font-size: 16px;
+        margin-top: 29px;
+    }
+
+    &.is-active{
+        background: #FFAA3B;
+
+        &:hover{
+            background: #F18900;
+        }
+    }
 }
 // コンタクト終わり
 
@@ -1385,8 +1569,8 @@ input[type="text"]:focus {
 footer {
     background: #3e3e3e;
     color: #fff;
-    
-    @include mq(sp){
+
+    @include mq(sp) {
         text-align: center;
     }
 }
@@ -1406,8 +1590,9 @@ footer {
     display: flex;
     margin-bottom: 23px;
 
-    @include mq(sp){
+    @include mq(sp) {
         justify-content: center;
+        margin-bottom: 36px;
     }
 }
 
@@ -1421,20 +1606,25 @@ footer {
     &:first-child {
         margin-right: 20px;
 
-        @include mq(sp){
+        @include mq(sp) {
             margin-right: 25px;
         }
     }
 
-    &:last-child{
-        @include mq(sp){
+    &:last-child {
+        @include mq(sp) {
             margin-left: 25px;
         }
     }
 }
 
-.footer-nav-item{
+.footer-nav-item {
     margin-top: 25px;
+
+    @include mq(sp){
+        margin-top: 0;
+        margin-bottom: 16px;
+    }
 }
 
 .footer-nav-item-link {
@@ -1442,7 +1632,7 @@ footer {
     opacity: 0.6;
     margin-bottom: 24px;
 
-    @include mq(sp){
+    @include mq(sp) {
         font-size: 14px;
     }
 }
@@ -1452,9 +1642,9 @@ footer {
     color: #e3e3e3;
     font-weight: 700;
 
-    @include mq(sp){
+    @include mq(sp) {
         font-size: 32px;
-        margin-top: 40px;
+        margin-top: 32px;
     }
 }
 
@@ -1463,7 +1653,7 @@ footer {
     text-align: right;
     opacity: 0.6;
 
-    @include mq(sp){
+    @include mq(sp) {
         text-align: center;
         margin-top: 16px;
     }
@@ -1471,8 +1661,8 @@ footer {
 
 .to-top {
     position: fixed;
-    right: 24px;
-    bottom: 24px;
+    right: 40px;
+    bottom: 55px;
     transition: all 0.5s ease 0s;
     visibility: hidden;
     opacity: 0;
@@ -1483,7 +1673,7 @@ footer {
     }
     a {
         img {
-            width: 60px;
+            width: 50px;
 
             @include mq("sp") {
                 width: 50px;

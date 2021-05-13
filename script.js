@@ -5,7 +5,7 @@ if (window.matchMedia('(max-width: 768px)').matches) {
   slideNumber = 1.3
   spaceNumber = 20
 } else {
-  slideNumber = 2.9
+  slideNumber = 2.78
   spaceNumber = 40
 }
 
@@ -60,3 +60,38 @@ $(window).on('scroll', function(){
       scrollTop: position
     },400)
   })
+
+  // 横から出てくるトグルバー
+  $('.drawer-icon-wrapper').on('click', function(e){
+    // クリックで飛ばなくなる
+    e.preventDefault()
+  
+    $('.drawer-icon').toggleClass('is-active')
+    $('.drawer-icon-wrapper').toggleClass('is-active')
+    $('.header-inner-sp').toggleClass('is-active')
+  
+    // 5秒かけて背景を暗くする。トグル
+    $(".drawer-background").fadeToggle(500);
+    return false
+  })
+
+
+  // フォームですべての要素が記入されているか
+  let $submit = $("#js-submit")
+$("#js-form input, #js-form textarea").on("change",function(){
+    if(
+      
+//js-formというidがついている中の　input[type="text"]　が空欄でない場合
+    $('#js-form input[type="text"]').val() !== "" &&　
+    $('#js-form textarea').val() !== ""&&
+    $('#js-form input[type = "checkbox"]').prop('checked') === true
+    ){
+        // すべて入力されたとき
+        $submit.addClass('is-active')
+        $submit.prop("disabled", false)
+    }else{
+        // すべて入力されていないとき
+        $submit.removeClass('is-active')
+        $submit.prop("disabled", true)
+    }
+})
