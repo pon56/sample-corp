@@ -930,6 +930,8 @@ img {
 }
 
 .price-table {
+  -webkit-appearance: none;
+  -webkit-text-size-adjust: 100%;
   margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
@@ -940,6 +942,7 @@ img {
   .price-table {
     width: 100%;
     margin-top: 42px;
+    max-width: 370px;
   }
 }
 
@@ -955,6 +958,7 @@ img {
 @media (max-width: 767px) {
   .table {
     font-size: 20px;
+    max-width: 370px;
   }
 }
 
@@ -993,6 +997,7 @@ img {
   .table td {
     width: calc(100% - 100px);
     padding-left: 20px;
+    max-width: 270px;
   }
 }
 
@@ -1598,6 +1603,7 @@ input[type="text"]:focus {
 }
 
 .radio-input {
+  display: none;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -1738,6 +1744,7 @@ input[type="text"]:focus {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  display: none;
   position: absolute;
 }
 

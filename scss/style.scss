@@ -814,8 +814,6 @@ img {
 
 // プライス始まり
 .price {
-    -webkit-appearance: none;
-    -webkit-text-size-adjust: 100%;
     padding: 130px 0;
 
     @include mq(sp) {
@@ -824,6 +822,8 @@ img {
 }
 
 .price-table {
+    -webkit-appearance: none;
+    -webkit-text-size-adjust: 100%;
     margin-top: 60px;
     margin-left: auto;
     margin-right: auto;
@@ -832,6 +832,7 @@ img {
     @include mq(sp) {
         width: 100%;
         margin-top: 42px;
+        max-width: 370px;
     }
 }
 
@@ -877,6 +878,7 @@ img {
         @include mq(sp) {
             width: calc(100% - 100px);
             padding-left: 20px;
+            max-width: 270px;
         }
     }
 }
