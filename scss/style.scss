@@ -822,8 +822,6 @@ img {
 }
 
 .price-table {
-    -webkit-appearance: none;
-    -webkit-text-size-adjust: 100%;
     margin-top: 60px;
     margin-left: auto;
     margin-right: auto;
@@ -852,6 +850,8 @@ img {
 
     th,
     td {
+        -webkit-appearance: none;
+        -webkit-text-size-adjust: 100%;
         border: solid 1px #707070;
         padding: 12px 40px;
         padding-right: 39px;
@@ -867,7 +867,7 @@ img {
         color: #fff;
 
         @include mq(sp) {
-            width: 100px;
+            width: 27%;
         }
     }
 
@@ -876,9 +876,8 @@ img {
         background: #fff;
 
         @include mq(sp) {
-            width: calc(100% - 100px);
+            width: 73%;
             padding-left: 20px;
-            max-width: 270px;
         }
     }
 }
@@ -1345,7 +1344,7 @@ select {
     width: 153px;
 
     @include mq(sp) {
-        width: 299px;
+        width: 97%;
         background: transparent;
     }
 }
@@ -1434,6 +1433,7 @@ input[type="text"]:focus {
 
 .radio-part:hover {
     &::before {
+        outline: none;
         border: 1px solid #3b69ff;
         box-shadow: #4973ff33 0 0 6px;
     }
@@ -1441,6 +1441,7 @@ input[type="text"]:focus {
 
 .radio-part:active {
     &::before {
+        outline: none;
         border: 1px solid #3b69ff;
         background: #4973ff33;
     }
