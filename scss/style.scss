@@ -814,6 +814,8 @@ img {
 
 // プライス始まり
 .price {
+    -webkit-appearance: none;
+    -webkit-text-size-adjust: 100%;
     padding: 130px 0;
 
     @include mq(sp) {
@@ -840,9 +842,11 @@ img {
     font-size: 24px;
     font-weight: 600;
     table-layout: fixed;
+    
 
     @include mq(sp) {
         font-size: 20px;
+        max-width: 370px;
     }
 
     th,
@@ -1391,6 +1395,7 @@ input[type="text"]:focus {
 }
 
 .radio-input {
+    display: none;
     appearance: none;
     position: absolute;
 }
@@ -1511,6 +1516,7 @@ input[type="text"]:focus {
 
 .contact-privacy-input {
     appearance: none;
+    display: none;
     position: absolute;
 }
 
