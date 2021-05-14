@@ -31,6 +31,8 @@ $box-shadow-color: #3e3e3e33;
 }
 
 main {
+    -webkit-appearance: none;
+    -webkit-text-size-adjust: 100%;
     background: #f3f3f3;
 
     @include mq(sp) {
