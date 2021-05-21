@@ -12,8 +12,6 @@
 }
 
 main {
-  -webkit-appearance: none;
-  -webkit-text-size-adjust: 100%;
   background: #f3f3f3;
 }
 
@@ -940,7 +938,6 @@ img {
   .price-table {
     width: 100%;
     margin-top: 42px;
-    max-width: 370px;
   }
 }
 
@@ -956,14 +953,11 @@ img {
 @media (max-width: 767px) {
   .table {
     font-size: 20px;
-    max-width: 370px;
   }
 }
 
 .table th,
 .table td {
-  -webkit-appearance: none;
-  -webkit-text-size-adjust: 100%;
   border: solid 1px #707070;
   padding: 12px 40px;
   padding-right: 39px;
@@ -984,7 +978,7 @@ img {
 
 @media (max-width: 767px) {
   .table th {
-    width: 27%;
+    width: 100px;
   }
 }
 
@@ -995,7 +989,7 @@ img {
 
 @media (max-width: 767px) {
   .table td {
-    width: 73%;
+    width: calc(100% - 100px);
     padding-left: 20px;
   }
 }
@@ -1544,7 +1538,7 @@ select {
 
 @media (max-width: 767px) {
   select {
-    width: 97%;
+    width: 299px;
     background: transparent;
   }
 }
@@ -1602,7 +1596,6 @@ input[type="text"]:focus {
 }
 
 .radio-input {
-  display: none;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -1648,14 +1641,12 @@ input[type="text"]:focus {
 }
 
 .radio-part:hover::before {
-  outline: none;
   border: 1px solid #3b69ff;
   -webkit-box-shadow: #4973ff33 0 0 6px;
           box-shadow: #4973ff33 0 0 6px;
 }
 
 .radio-part:active::before {
-  outline: none;
   border: 1px solid #3b69ff;
   background: #4973ff33;
 }
@@ -1745,7 +1736,6 @@ input[type="text"]:focus {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  display: none;
   position: absolute;
 }
 
